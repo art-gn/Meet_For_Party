@@ -12,17 +12,17 @@ import java.util.ArrayList;
  * @author Asus
  */
 public class User {
-    private String Pseudo;
+    private String pseudo;
     private String birthDate;
-    private String Password;
+    private String password;
     private String Sexe;
     private ArrayList<User> listFriend = new ArrayList<User>();
     
 
-    public User(String Pseudo, String birthDate, String Password, String Sexe) {
-        this.Pseudo = Pseudo;
+    public User(String pseudo, String birthDate, String password, String Sexe) {
+        this.pseudo = pseudo;
         this.birthDate = birthDate;
-        this.Password = Password;
+        this.password = password;
         this.Sexe = Sexe;
     }
     
@@ -35,11 +35,11 @@ public class User {
     
 
     public String getPseudo() {
-        return Pseudo;
+        return pseudo;
     }
 
-    public void setPseudo(String Pseudo) {
-        this.Pseudo = Pseudo;
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
     }
 
     public String getBirthDate() {
@@ -51,11 +51,11 @@ public class User {
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
-    public void setPassword(String Password) {
-        this.Password = Password;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getSexe() {
@@ -68,7 +68,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + Pseudo +" ,"+ birthDate+" ," +  Password +" ,"+  Sexe + ", Ami(s) :" + listFriend + '}';
+        return "User{" + pseudo +" ,"+ birthDate+" ," +  password +" ,"+  Sexe + ", Ami(s) :" + listFriend + '}';
     }
     
     

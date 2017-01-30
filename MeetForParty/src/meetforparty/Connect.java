@@ -7,8 +7,10 @@ package meetforparty;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  *
@@ -17,16 +19,35 @@ import java.util.Map;
 public class Connect {
     private Connection connexion ;
     private HashMap<Integer,String> all = new HashMap<Integer, String>();
-
+    String driver = "com.mysql.jdbc.Driver";
     String url = "jdbc:mysql://localhost:3306/meet_for_party";
     String utilisateur = "root";
     String motDePasse = "root";
     
      public Connect() throws Exception{
 
-        Class.forName("com.mysql.jdbc.Driver").newInstance();
+        Class.forName(driver).newInstance();
         connexion = DriverManager.getConnection( url, utilisateur, motDePasse );
 
+    }
+     
+    public void addUser(String pseudo,String birthDate,String password, String sexe) throws SQLException{
+        
+        Statement statement = connexion.createStatement();
+        int ok = statement.executeUpdate( "INSERT INTO user values (null, \""+pseudo+"\", \""+birthDate+"\", \""+password+"\", \""+sexe+"\",\"\" ) ;" );
+    }
+
+    public void fermerConnexion() throws SQLException{
+        connexion.close();
+    }
+
+    public void reload() throws SQLException{
+        Statement statement = connexion.createStatement();
+        ResultSet resultat = statement.executeQuery( "SELECT * FROM user;" );
+        all.clear();
+        while ( resultat.next() ) {
+            all.put(resultat.getInt(1), resultat.getString(2+" "+3+" "+4+" "+5)); 
+        }      
     }
 }
 /*private Connection connexion;
