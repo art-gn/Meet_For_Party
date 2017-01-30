@@ -17,6 +17,7 @@ public abstract class User {
     private String Password;
     private String Sexe;
     private ArrayList<User> listFriend = new ArrayList<User>();
+    
 
     public User(String Pseudo, String birthDate, String Password, String Sexe) {
         this.Pseudo = Pseudo;
