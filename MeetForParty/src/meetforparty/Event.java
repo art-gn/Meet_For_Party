@@ -7,6 +7,7 @@ package meetforparty;
 
 import java.sql.*;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -31,5 +32,24 @@ public class Event {
         
         Statement statement = connexion.createStatement();
         int ok = statement.executeUpdate( "INSERT INTO pannes values (null, \""+nom+"\") ;" );
+    }
+    public void reload() throws SQLException{
+        Statement statement = connexion.createStatement();
+        ResultSet resultat = statement.executeQuery( "SELECT id,nom FROM pannes;" );
+        listeJeu.clear();
+        while ( resultat.next() ) {
+            listeJeu.put(resultat.getInt(1), resultat.getString(2)); 
+        }      
+    }
+    @Override
+    public String toString() {
+        String str ="";
+        for(Map.Entry<Integer, String> entry : listeJeu.entrySet()){
+            str += entry.getKey()+": "+entry.getValue()+"\n";
+        }
+        return str ;
+    }
+    public void fermerConnexion() throws SQLException{
+        connexion.close();
     }
 }
