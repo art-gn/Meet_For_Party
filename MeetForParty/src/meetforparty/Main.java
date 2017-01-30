@@ -50,7 +50,14 @@ public class Main {
                 case 2:
                     break;
                 case 3:
-                    
+                    System.out.println("__NEW EVENT__");
+                    System.out.println("Nom: ");
+                    String nom= new Scanner(System.in).nextLine();
+                    System.out.println("Date de la Partie");
+                    String Date= new Scanner(System.in).nextLine();
+                    System.out.println("Heure de la partie");
+                    String heure= new Scanner(System.in).nextLine();
+                    break;
                             
                     
             }
