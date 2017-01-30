@@ -18,4 +18,18 @@ public class Event {
     String url = "jdbc:mysql://localhost:3306/meet_for_party";
     String utilisateur = "root";
     String motDePasse = "root";
+    
+    public Event() throws Exception{
+
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
+        connexion = DriverManager.getConnection( url, utilisateur, motDePasse );
+
+    }
+    
+    
+    public void insert(String nom) throws SQLException{
+        
+        Statement statement = connexion.createStatement();
+        int ok = statement.executeUpdate( "INSERT INTO pannes values (null, \""+nom+"\") ;" );
+    }
 }
