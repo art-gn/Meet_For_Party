@@ -15,7 +15,8 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Event catalogue = new Event();
+        User test = new User("Lutin","1991-09-09","zob","homme");
+        System.out.println(test);
     }
     
 }

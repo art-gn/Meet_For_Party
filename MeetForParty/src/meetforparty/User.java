@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Asus
  */
-public abstract class User {
+public class User {
     private String Pseudo;
     private String birthDate;
     private String Password;
@@ -65,6 +65,12 @@ public abstract class User {
     public void setSexe(String Sexe) {
         this.Sexe = Sexe;
     }
+
+    @Override
+    public String toString() {
+        return "User{" + Pseudo +" ,"+ birthDate+" ," +  Password +" ,"+  Sexe + ", Ami(s) :" + listFriend + '}';
+    }
+    
     
     
 }
