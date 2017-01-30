@@ -6,6 +6,7 @@
 package meetforparty;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.util.HashMap;
 
 /**
@@ -19,4 +20,11 @@ public class Connect {
     String url = "jdbc:mysql://localhost:3306/meet_for_party";
     String utilisateur = "root";
     String motDePasse = "root";
+    
+     public Connect() throws Exception{
+
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
+        connexion = DriverManager.getConnection( url, utilisateur, motDePasse );
+
+    }
 }
