@@ -29,6 +29,8 @@ public class Main {
             System.out.println("0. Quitter");
             System.out.println("1. Inscription");
             System.out.println("2. Connexion");
+            System.out.println("3.Création Event");
+            
 
             choix = new Scanner(System.in).nextInt();
             
@@ -44,9 +46,15 @@ public class Main {
                     System.out.print("Homme - Femme : ");
                     String sexe = new Scanner(System.in).nextLine();
                     connection.addUser(pseudo, birthDate, password, sexe);
+                    break;
                 case 2:
+                    break;
+                case 3:
                     
-            }  
+                            
+                    
+            }
+            
         } while(choix != 0);
         connection.fermerConnexion();
     }
