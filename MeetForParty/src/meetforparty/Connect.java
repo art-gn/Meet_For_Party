@@ -49,6 +49,13 @@ public class Connect {
             all.put(resultat.getInt(1), resultat.getString(2+" "+3+" "+4+" "+5)); 
         }      
     }
+
+    void addEvent(String nom, String Date, String heure) throws SQLException {
+        Statement statement = connexion.createStatement();
+        int ok = statement.executeUpdate( "INSERT INTO event values (null, \""+nom+"\",\""+Date+"\",null , \""+heure+"\") ;" );
+        
+    }
+    
 }
 /*private Connection connexion;
     private HashMap<Integer,String> listeJeu = new HashMap<Integer, String>();

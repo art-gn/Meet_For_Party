@@ -57,6 +57,7 @@ public class Main {
                     String Date= new Scanner(System.in).nextLine();
                     System.out.println("Heure de la partie");
                     String heure= new Scanner(System.in).nextLine();
+                    connection.addEvent(nom,Date,heure);
                     break;
                             
                     
