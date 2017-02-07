@@ -78,8 +78,17 @@ public class Main {
                     connection.addEvent(nom,Date,heure);
                     break;
                 case 4:
+                    listEvent g = new listEvent();
                     System.out.println("___EVENT DISPO___");
-                    connection.getEvents();
+                    ResultSet TabEvent = connection.getEvents();
+                    while(TabEvent.next()){
+                        String nom_event = TabEvent.getString("nom_event");
+                        String date = TabEvent.getString("date_event");
+                        String jeu = TabEvent.getString("jeu_event");
+                        String heure_event = TabEvent.getString("heure_event");
+                    g.add(new Event( nom_event, date, jeu, heure_event));
+                    }
+                    System.out.println(g);
                     break;
                     
             }
@@ -112,3 +121,19 @@ public class Main {
     }
     
 }
+/*
+int nombreligne;
+        nombreligne = TabEvent.getRow();
+        TabEvent.beforeFirst();
+        System.out.println(nombreligne);
+        for (int i = 0; i < nombreligne; i++) {
+            TabEvent.next();
+            String nom = TabEvent.getString("nom_event");
+            String date = TabEvent.getString("date_event");
+            String jeu = TabEvent.getString("jeu_event");
+            String heure = TabEvent.getString("heure_event");
+            Event event = new Event(nom,date,jeu,heure);
+            return E;
+            
+        }
+*/
