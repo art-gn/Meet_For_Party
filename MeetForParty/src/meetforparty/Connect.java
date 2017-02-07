@@ -67,8 +67,9 @@ public class Connect {
     void getEvents() throws SQLException {
         Statement statement = connexion.createStatement();
         ResultSet TabEvent;
-        TabEvent = Statement.("SELECT `nom_event`, `date_event`, `jeu_event`, `heure_event` FROM `event` WHERE 1" );
-        System.out.println(Event);
+        TabEvent = statement.executeQuery("SELECT `nom_event`, `date_event`, `jeu_event`, `heure_event` FROM `event` WHERE 1" );
+        TabEvent.next();
+        System.out.println(TabEvent);
     }
 }
 
