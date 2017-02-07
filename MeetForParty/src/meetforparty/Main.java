@@ -30,6 +30,7 @@ public class Main {
             System.out.println("1. Inscription");
             System.out.println("2. Connexion");
             System.out.println("3.Création Event");
+            System.out.println("4.Afficher Event dispo");
             
             choix = new Scanner(System.in).nextInt();
             
@@ -63,7 +64,10 @@ public class Main {
                     String heure= new Scanner(System.in).nextLine();
                     connection.addEvent(nom,Date,heure);
                     break;
-                            
+                case 4:
+                    System.out.println("___EVENT DISPO___");
+                    connection.getEvents();
+                    break;
                     
             }
         } while(choix != 0);
