@@ -15,6 +15,8 @@ public class UserConnected extends User {
         super(pseudo, birthDate, password, Sexe);
     }
 
+    
+
     @Override
     public void setSexe(String Sexe) {
         super.setSexe(Sexe); //To change body of generated methods, choose Tools | Templates.
@@ -63,6 +65,11 @@ public class UserConnected extends User {
     @Override
     public void createEvent() {
         super.createEvent(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public String toString() {
+        return getPseudo()+" "+getBirthDate()+" "+getSexe();
     }
     
 }

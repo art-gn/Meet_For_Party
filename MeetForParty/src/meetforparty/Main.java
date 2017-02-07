@@ -23,6 +23,7 @@ public class Main {
         User test = new User("Lutin","1991-09-09","zob","homme");
         //System.out.println(test);
         int choix;
+        UserConnected UserC=null;
         
         Connect connection = new Connect();
         do{
@@ -30,8 +31,7 @@ public class Main {
             System.out.println("0. Quitter");
             System.out.println("1. Inscription");
             System.out.println("2. Connexion");
-            System.out.println("3.Création Event");
-            System.out.println("4.Afficher Event dispo");
+            
             
             choix = new Scanner(System.in).nextInt();
             
@@ -63,11 +63,10 @@ public class Main {
                     sexeConnected=userRequest.getString("sexe");
                     anniversaryConnected= userRequest.getString("birthDate");
                     passwordConnected= userRequest.getString("password");
-                    UserConnected UserC;
                     UserC = new UserConnected(pseudoConnected,anniversaryConnected,passwordConnected,sexeConnected);
-//                    System.out.println(UserC);
-                    
+//                    System.out.println(UserC);                    
                     break;
+            
                 case 3:
                     System.out.println("__NEW EVENT__");
                     System.out.println("Nom: ");
@@ -84,7 +83,31 @@ public class Main {
                     break;
                     
             }
-        } while(choix != 0);
+        } while( choix !=2 && choix != 0 );
+        if(UserC.getPseudo()!=null)
+        do{
+            System.out.println("0.Quitter");
+            System.out.println("1.Création Event");
+            System.out.println("2.Afficher Event dispo");
+            choix = new Scanner(System.in).nextInt();
+            
+            switch(choix){
+                case 1:
+                    System.out.println("__NEW EVENT__");
+                    System.out.println("Nom: ");
+                    String nom= new Scanner(System.in).nextLine();
+                    System.out.println("Date de la Partie");
+                    String Date= new Scanner(System.in).nextLine();
+                    System.out.println("Heure de la partie");
+                    String heure= new Scanner(System.in).nextLine();
+                    connection.addEvent(nom,Date,heure);
+                    break;
+                case 2:
+                    System.out.println("___EVENT DISPO___");
+                    connection.getEvents();
+                    break;
+            }
+        }while(choix!=0);
         connection.fermerConnexion();
     }
     
