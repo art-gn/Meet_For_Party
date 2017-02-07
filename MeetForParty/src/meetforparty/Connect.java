@@ -8,6 +8,7 @@ package meetforparty;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
@@ -67,9 +68,24 @@ public class Connect {
     void getEvents() throws SQLException {
         Statement statement = connexion.createStatement();
         ResultSet TabEvent;
-        TabEvent = statement.executeQuery("SELECT `nom_event`, `date_event`, `jeu_event`, `heure_event` FROM `event` WHERE 1" );
-        TabEvent.next();
-        System.out.println(TabEvent);
+        TabEvent = statement.executeQuery("SELECT `nom_event`, `date_event`, `jeu_event`, `heure_event` FROM `event` " );
+        TabEvent.last();
+        int nombreligne;
+        nombreligne = TabEvent.getRow();
+        TabEvent.beforeFirst();
+        System.out.println(nombreligne);
+        for (int i = 0; i < nombreligne; i++) {
+            TabEvent.next();
+            String nom = TabEvent.getString("nom_event");
+            String date = TabEvent.getString("date_event");
+            String jeu = TabEvent.getString("jeu_event");
+            String heure = TabEvent.getString("heure_event");
+            Event event = new Event(nom,date,jeu,heure);
+            
+        }
+        
+        
+        /*ResultSetMetaData metadata = TabEvent.getMetaData();*/
     }
 }
 
