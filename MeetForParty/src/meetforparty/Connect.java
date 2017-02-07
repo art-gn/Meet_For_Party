@@ -40,7 +40,14 @@ public class Connect {
     public void fermerConnexion() throws SQLException{
         connexion.close();
     }
-
+    
+    public void login(String identifiant, String mdp) throws SQLException{
+        Statement statement = connexion.createStatement();
+        ResultSet userRequest;
+        userRequest = statement.executeQuery("Select * From user where pseudo ="+identifiant+" and password ="+mdp+
+"");
+        System.out.println(userRequest);
+    }
     public void reload() throws SQLException{
         Statement statement = connexion.createStatement();
         ResultSet resultat = statement.executeQuery( "SELECT * FROM user;" );
