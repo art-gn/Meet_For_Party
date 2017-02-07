@@ -42,7 +42,7 @@ public class Main {
                     String pseudo = new Scanner(System.in).nextLine();
                     System.out.print("Date de naissance (yyyy-mm-dd): ");
                     String birthDate = new Scanner(System.in).nextLine();
-                    System.out.print("Mot de passe): ");
+                    System.out.print("Mot de passe : ");
                     String password = new Scanner(System.in).nextLine();
                     System.out.print("Homme - Femme : ");
                     String sexe = new Scanner(System.in).nextLine();
@@ -55,7 +55,7 @@ public class Main {
                     String passwordConnected;
                     System.out.print("Pseudo : ");
                     String identifiant = new Scanner(System.in).nextLine();
-                    System.out.print("Mot de passe): ");
+                    System.out.print("Mot de passe : ");
                     String mdp = new Scanner(System.in).nextLine();
                     ResultSet userRequest = connection.login(identifiant,mdp);
                     userRequest.next();
@@ -63,7 +63,9 @@ public class Main {
                     sexeConnected=userRequest.getString("sexe");
                     anniversaryConnected= userRequest.getString("birthDate");
                     passwordConnected= userRequest.getString("password");
-                    System.out.println(pseudoConnected);
+                    UserConnected UserC;
+                    UserC = new UserConnected(pseudoConnected,anniversaryConnected,passwordConnected,sexeConnected);
+//                    System.out.println(UserC);
                     
                     break;
                 case 3:
