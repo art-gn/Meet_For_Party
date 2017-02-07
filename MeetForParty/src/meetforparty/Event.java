@@ -10,15 +10,29 @@ package meetforparty;
  *
  * @author pc
  */
-public class Event {
+public class Event extends listEvent{
     private String Nom;
     private String Date;
     private String Jeu;
+    private String Heure;
 
-    public Event(String Nom, String Date, String Jeu) {
+
+
+    Event(String Nom, String Date, String Jeu,String Heure) {
         this.Nom = Nom;
         this.Date = Date;
         this.Jeu = Jeu;
+        this.Heure = Heure;
+    }
+
+ 
+
+    public String getHeure() {
+        return Heure;
+    }
+
+    public void setHeure(String Heure) {
+        this.Heure = Heure;
     }
 
     public String getNom() {
