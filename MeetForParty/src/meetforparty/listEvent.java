@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 package meetforparty;
-
+import java.util.ArrayList;
 /**
  *
  * @author pc
  */
-public class listEvent extends arraylist<Event> {
+public class listEvent extends ArrayList<Event> {
     
 }
