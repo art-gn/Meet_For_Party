@@ -41,13 +41,13 @@ public class Connect {
         connexion.close();
     }
     
-    public void login(String identifiant, String mdp) throws SQLException{
+    public ResultSet login(String identifiant, String mdp) throws SQLException{
+
         Statement statement = connexion.createStatement();
         ResultSet userRequest;
         userRequest = statement.executeQuery("Select * From user where pseudo =\""+identifiant+"\" and password =\""+mdp+"\"");
-        userRequest.next();
-        System.out.println(userRequest.getString("pseudo"));
-        System.out.println(userRequest.getString("password"));
+        return userRequest;
+        
     }
     public void reload() throws SQLException{
         Statement statement = connexion.createStatement();

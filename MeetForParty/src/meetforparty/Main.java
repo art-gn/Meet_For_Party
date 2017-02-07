@@ -5,6 +5,7 @@
  */
 package meetforparty;
 
+import java.sql.ResultSet;
 import java.util.Scanner;
 
 /**
@@ -48,11 +49,22 @@ public class Main {
                     connection.addUser(pseudo, birthDate, password, sexe);
                     break;
                 case 2:
+                    String pseudoConnected;
+                    String sexeConnected;
+                    String anniversaryConnected;
+                    String passwordConnected;
                     System.out.print("Pseudo : ");
                     String identifiant = new Scanner(System.in).nextLine();
                     System.out.print("Mot de passe): ");
                     String mdp = new Scanner(System.in).nextLine();
-                    connection.login(identifiant,mdp);
+                    ResultSet userRequest = connection.login(identifiant,mdp);
+                    userRequest.next();
+                    pseudoConnected =userRequest.getString("pseudo");
+                    sexeConnected=userRequest.getString("sexe");
+                    anniversaryConnected= userRequest.getString("birthDate");
+                    passwordConnected= userRequest.getString("password");
+                    System.out.println(pseudoConnected);
+                    
                     break;
                 case 3:
                     System.out.println("__NEW EVENT__");
