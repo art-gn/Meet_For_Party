@@ -29,7 +29,8 @@ public class Main {
             System.out.println("0. Quitter");
             System.out.println("1. Inscription");
             System.out.println("2. Connexion");
-
+            System.out.println("3.Création Event");
+            
             choix = new Scanner(System.in).nextInt();
             
             switch(choix){
@@ -44,13 +45,27 @@ public class Main {
                     System.out.print("Homme - Femme : ");
                     String sexe = new Scanner(System.in).nextLine();
                     connection.addUser(pseudo, birthDate, password, sexe);
+                    break;
                 case 2:
                     System.out.print("Pseudo : ");
                     String identifiant = new Scanner(System.in).nextLine();
                     System.out.print("Mot de passe): ");
                     String mdp = new Scanner(System.in).nextLine();
                     connection.login(identifiant,mdp);
-            }  
+                    break;
+                case 3:
+                    System.out.println("__NEW EVENT__");
+                    System.out.println("Nom: ");
+                    String nom= new Scanner(System.in).nextLine();
+                    System.out.println("Date de la Partie");
+                    String Date= new Scanner(System.in).nextLine();
+                    System.out.println("Heure de la partie");
+                    String heure= new Scanner(System.in).nextLine();
+                    connection.addEvent(nom,Date,heure);
+                    break;
+                            
+                    
+            }
         } while(choix != 0);
         connection.fermerConnexion();
     }

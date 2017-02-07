@@ -44,9 +44,10 @@ public class Connect {
     public void login(String identifiant, String mdp) throws SQLException{
         Statement statement = connexion.createStatement();
         ResultSet userRequest;
-        userRequest = statement.executeQuery("Select * From user where pseudo ="+identifiant+" and password ="+mdp+
-"");
-        System.out.println(userRequest);
+        userRequest = statement.executeQuery("Select * From user where pseudo =\""+identifiant+"\" and password =\""+mdp+"\"");
+        userRequest.next();
+        System.out.println(userRequest.getString("pseudo"));
+        System.out.println(userRequest.getString("password"));
     }
     public void reload() throws SQLException{
         Statement statement = connexion.createStatement();
@@ -56,6 +57,13 @@ public class Connect {
             all.put(resultat.getInt(1), resultat.getString(2+" "+3+" "+4+" "+5)); 
         }      
     }
+
+    void addEvent(String nom, String Date, String heure) throws SQLException {
+        Statement statement = connexion.createStatement();
+        int ok = statement.executeUpdate( "INSERT INTO event values (null, \""+nom+"\",\""+Date+"\",null , \""+heure+"\") ;" );
+        
+    }
+    
 }
 /*private Connection connexion;
     private HashMap<Integer,String> listeJeu = new HashMap<Integer, String>();
