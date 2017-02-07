@@ -45,7 +45,11 @@ public class Main {
                     String sexe = new Scanner(System.in).nextLine();
                     connection.addUser(pseudo, birthDate, password, sexe);
                 case 2:
-                    
+                    System.out.print("Pseudo : ");
+                    String identifiant = new Scanner(System.in).nextLine();
+                    System.out.print("Mot de passe): ");
+                    String mdp = new Scanner(System.in).nextLine();
+                    connection.login(identifiant,mdp);
             }  
         } while(choix != 0);
         connection.fermerConnexion();
